@@ -1,19 +1,4 @@
-import re
 
-def convert_to_markdown_headers(text):
-    lines = text.split('\n')
-    new_lines = []
-    for line in lines:
-        # '숫자. ' 로 시작하는 라인 찾아서 ## 제목으로 변경
-        if re.match(r'^\d+\.', line.strip()):  # ← 여기! \d+로 수정됨
-            new_line = '## ' + line.strip()
-            new_lines.append(new_line)
-        else:
-            new_lines.append(line)
-    return '\n'.join(new_lines)
-
-# 예시 입력
-raw_text = """
 2020.06 기출문제
 
 1. 일련번호/
